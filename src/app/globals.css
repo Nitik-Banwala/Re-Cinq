@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  font-family: "Neue Montreal", sans-serif;
+  /* border: 1px solid white; */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-yellow: #E58E1A;
+  --color-gray: #0E0E0E;
+  --color-light-black: #0E0E0E4D;
+  --color-cool-gray: #CCCCCC;
+  --color-jet-black: #0F0F0F;
+  --color-dark-charcoal: #2C2C2C;
+  --color-light-gray: #CFCFCF;
+  --color-dark-gray: #333333;
+  --color-spanish-gray: #999999;
+  --color-dark-grey:#525252;
+  --color-blue:#0b0710;
+  --color-light-gray:#A1A1A1;
+
+
+  --text-32: 32px;
+  --text-40: 40px;
+  --text-28: 28px;
+  --text-15: 15px;
+  --text-15: 15px;
+  --text-44: 44px;
+  --text-50:50px;
+  --text-65: 65px;
+
+
+
+  --leading-100: 100%;
+  --leading-135: 135%;
+  --leading-145: 145%;
+  --leading-140: 140%;
+  --leading-121: 121%;
+  --leading-119: 119%;
+  --leading-130: 130%;
+  --leading-120: 120%;
+  --leading-144: 144%;
+  --leading-150: 150%;
+  --leading-157: 157%;
+  --leading-156: 156%;
+  --leading-141: 141%;
+  --leading-141: 141%;
+  --leading-126: 126%;
+  
+
+
+}
+/* tdfyguhjkl; */
+.gradient-border {
+  position: relative;
+  border-radius: 90px;
+
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.5px;
+  border-radius: inherit;
+  background: linear-gradient(94.09deg,
+      rgba(255, 255, 255, 0.1) -7.43%,
+      rgba(255, 255, 255, 0.28) 15.39%,
+      rgba(255, 255, 255, 0.1) 44.9%,
+      rgba(255, 255, 255, 0.28) 67.95%,
+      rgba(255, 255, 255, 0.1) 98.21%);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/assets/font/Neue%20Montreal/NeueMontreal-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-marquee {
+  animation: marquee 20s linear infinite;
 }
