@@ -26,9 +26,9 @@ const Community = () => {
                         reports, podcast, and the strategic tools we use to guide the
                         world’s leading companies.
                     </p>
-                    <div className="bg-[url('/assets/images/png/community.png')] md:max-w-51 max-w-46.75 w-full opacity-80 flex items-center justify-center md:h-12.75 h-10.75 hover:scale-110 duration-300 transition-all cursor-pointer sm:mt-7.5 mt-6  bg-no-repeat bg-center bg-contain">
-                        <h2 className="text-base font-normal leading-119 text-white">Join the Community</h2>
-                    </div>
+                    <button className="bg-[url('/assets/images/png/community.png')] md:max-w-51 max-w-46.75 w-full opacity-80 flex items-center justify-center md:h-12.75 h-10.75 hover:scale-110 duration-300 transition-all cursor-pointer sm:mt-7.5 mt-6  bg-no-repeat bg-center bg-contain">
+                        <span className="text-base font-normal leading-119 text-white">Join the Community</span>
+                    </button>
                 </div>
             </div>
         </section>
