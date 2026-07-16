@@ -11,7 +11,7 @@ const Navbar = () => {
     const [isMobileOpen, setIsMobileOpen] = useState(false)
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
     const [mobileInnovationOpen, setMobileInnovationOpen] = useState(false)
-      const [isScrolled, setIsScrolled] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
 
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Navbar = () => {
             document.body.style.overflow = ''
         }
     }, [isMobileOpen])
-  useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 10)
         handleScroll()
         window.addEventListener('scroll', handleScroll, { passive: true })
@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         <div className='w-full px-4 fixed py-5.5 z-50'>
 
-            <div className={`max-w-[1280.1px] sm:gradient-border ${isScrolled ? 'sm:backdrop-blur-3xl' : ''} flex flex-row justify-between items-center p-1.5 sm:bg-white/6 rounded-[90px] w-full mx-auto`}>
+            <div className={`max-w-[1280.1px] sm:gradient-border ${isScrolled ? 'backdrop-blur-3xl bg-white/6' : ''} flex flex-row justify-between items-center p-1.5 sm:bg-white/6 rounded-[90px] w-full mx-auto`}>
                 <div className='lg:ml-3.5'>
                     <Link href="/">
                         <Icons icon={'navlogo'} />
@@ -59,12 +59,14 @@ const Navbar = () => {
                                         )}
                                     </div>
                                     {index === 1 && (
-                                        <div className="absolute backdrop-blur-xl  left-0 z-20 top-full -ml-25.5 pt-2 px-5.5 h-46 w-51.75 hidden group-hover:flex flex-col bg-[url('/assets/images/png/navbg.png')] bg-cover bg-center bg-no-repeat">
+                                        <div className="absolute backdrop-blur-xl gap-3  left-0 z-20 top-full -ml-25.5 pt-3 px-5.5 h-46 w-51.75 hidden group-hover:flex flex-col bg-[url('/assets/images/png/navbg.png')] bg-cover bg-center bg-no-repeat">
                                             {SERVICES_DROPDOWN.map((dropdownItem, i) => (
-                                                <p
-                                                    key={i}
-                                                    className={`text-white/60 hover:text-white h-7.75 mt-3 text-base ${i === 3 ? "" : "border-b border-dark-grey"}`}>{dropdownItem}
-                                                </p>
+                                                <div key={i} className={`${i === 3 ? "" : "border-b border-dark-grey"} pb-2`}>
+                                                    <Link
+                                                        href='/'
+                                                        className={`text-white/60 hover:text-white w-fit h-7.75 mt-3 text-base `}>{dropdownItem}
+                                                    </Link>
+                                                </div>
                                             ))}
                                         </div>
                                     )}
@@ -76,21 +78,25 @@ const Navbar = () => {
                                 <Icons icon="line" />
                             </div>
                             <Link href="/" className='flex flex-row'>
-                             <p className="text-white mr-2.5 group/text hover:text-purple-400 text-base leading-140 duration-300 cursor-pointer relative z-20">
-                                Waves of 
-                                <span className=" bg-[linear-gradient(90deg,#FFFFFF_44%,#A96DDE_100%)] bg-clip-text group-hover/text:text-purple-400 duration-300 text-transparent">innovation</span>
-                            </p>
-                               
+                                <p className="text-white mr-2.5 group/text hover:text-purple-400 text-base leading-140 duration-300 cursor-pointer relative z-20">
+                                    Waves of
+                                    <span className=" bg-[linear-gradient(90deg,#FFFFFF_44%,#A96DDE_100%)] bg-clip-text group-hover/text:text-purple-400 duration-300 text-transparent">innovation</span>
+                                </p>
+
                             </Link>
 
                             <div className="mt-1 group-hover:rotate-180 duration-500 cursor-pointer">
                                 <Icons icon="downarrow" />
                             </div>
-                            <div className="absolute z-60 left-0 -ml-8 duration-500 px-5.5 flex-col top-full h-57 pt-2 hidden group-hover:block bg-[url('/assets/images/png/navbg.png')] backdrop-blur-3xl bg-cover bg-no-repeat bg-center text-white w-64">
+                            <div className="absolute z-60 left-0 -ml-8  duration-500 px-5.5 flex-col top-full h-57 pt-2 hidden group-hover:block bg-[url('/assets/images/png/navbg.png')] backdrop-blur-3xl bg-cover bg-no-repeat bg-center text-white w-64">
                                 {INOVARTION_DROPDOWN.map((item, index) => {
                                     return (
-                                        <div key={index}>
-                                            <p className={`text-white/60 hover:text-white h-7.75 mt-3 text-base ${index === 4 ? "border-none " : " border-b border-dark-grey "}`}>{item}</p>
+                                        <div key={index}
+                                            className={`${index === 4 ? "" : "border-b border-dark-grey"} pt-2.5 pb-2`}>
+                                            <Link
+                                                href='/'
+                                                className={`text-white/60 hover:text-white w-fit h-7.75 mt-3 text-base `}>{item}
+                                            </Link>
                                         </div>
                                     )
                                 })}
@@ -119,17 +125,15 @@ const Navbar = () => {
             <div
                 onClick={closeMobile}
                 aria-hidden="true"
-                className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 lg:hidden ${
-                    isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                }`}
+                className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 lg:hidden ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    }`}
             />
 
             <div
                 role="dialog"
                 aria-modal="true"
-                className={`fixed top-0 right-0 h-dvh w-[82%] max-w-[360.1px] bg-blue lg:hidden overflow-y-auto transition-transform duration-500 ease-in-out ${
-                    isMobileOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}
+                className={`fixed top-0 right-0 h-dvh w-[82%] max-w-[360.1px] bg-blue lg:hidden overflow-y-auto transition-transform duration-500 ease-in-out ${isMobileOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
                 style={{
                     backgroundImage:
                         'radial-gradient(120% 60% at 100% 0%, rgba(120,60,200,0.25) 0%, rgba(11,7,16,0) 60%), radial-gradient(140% 80% at 0% 100%, rgba(120,60,200,0.18) 0%, rgba(11,7,16,0) 55%)'
@@ -179,9 +183,8 @@ const Navbar = () => {
 
                                 {index === 1 && (
                                     <div
-                                        className={`overflow-hidden transition-all duration-300 ${
-                                            mobileServicesOpen ? 'max-h-60' : 'max-h-0'
-                                        }`}
+                                        className={`overflow-hidden transition-all duration-300 ${mobileServicesOpen ? 'max-h-60' : 'max-h-0'
+                                            }`}
                                     >
                                         <div className='flex flex-col border-l gap-3 border-white/20'>
                                             {SERVICES_DROPDOWN.map((dropdownItem, i) => (
@@ -190,7 +193,7 @@ const Navbar = () => {
                                                     onClick={closeMobile}
                                                     className='text-light-gray hover:text-white flex flex-row items-center gap-2 text-sm cursor-pointer'
                                                 >
-                                                   <div className='w-2 h-px bg-white/20 '></div> {dropdownItem}
+                                                    <div className='w-2 h-px bg-white/20 '></div> {dropdownItem}
                                                 </p>
                                             ))}
                                         </div>
@@ -214,9 +217,8 @@ const Navbar = () => {
                         </div>
 
                         <div
-                            className={`overflow-hidden transition-all duration-300 ${
-                                mobileInnovationOpen ? 'max-h-96' : 'max-h-0'
-                            }`}
+                            className={`overflow-hidden transition-all duration-300 ${mobileInnovationOpen ? 'max-h-96' : 'max-h-0'
+                                }`}
                         >
                             <div className='flex flex-col gap-3 border-l border-white/20'>
                                 {INOVARTION_DROPDOWN.map((item, index) => (
