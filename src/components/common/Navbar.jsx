@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         <div className='w-full px-4 fixed py-5.5 z-50'>
 
-            <div className={`max-w-[1280.1px] sm:gradient-border ${isScrolled ? 'backdrop-blur-3xl bg-white/6' : ''} flex flex-row justify-between items-center p-1.5 sm:bg-white/6 rounded-[90px] w-full mx-auto`}>
+            <div className={`max-w-[1280.1px] sm:gradient-border ${isScrolled ? 'backdrop-blur-3xl bg-white/6' : ''} flex flex-row justify-between items-center min-[1320px]:bg-[url('/assets/images/png/navebarbg.png')] bg-center bg-cover bg-no-repeat p-1.5 max-[1320px]:bg-white/6 sm:bg-white/6 rounded-[90px] w-full mx-auto`}>
                 <div className='lg:ml-3.5'>
                     <Link href="/">
                         <Icons icon={'navlogo'} />
