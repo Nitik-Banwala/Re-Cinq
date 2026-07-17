@@ -2,7 +2,6 @@
 
 * {
   font-family: "Neue Montreal", sans-serif;
-  /* border: 1px solid white; */
 }
 
 @theme {
@@ -50,7 +49,6 @@
 
 
 }
-/* tdfyguhjkl; */
 .gradient-border {
   position: relative;
   border-radius: 90px;
