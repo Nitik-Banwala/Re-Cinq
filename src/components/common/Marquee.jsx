@@ -20,7 +20,7 @@ const Marquee = () => {
                     <div className='sm:flex hidden  absolute -mt-40 right-0 h-40 z-20'>
                         <Icons icon={'elipsefour'} />
                     </div>
-                    <div className=' absolute max-w-360 w-full h-50 z-20 bg-black/35'>
+                    <div className=' absolute max-w-360 w-full h-20 sm:h-50 z-20 bg-black/35'>
 
                     </div>
                     <div className='md:flex flex-row items-center hidden relative z-10 animate-marquee w-full gap-25 mt-9 md:mt-10'>
